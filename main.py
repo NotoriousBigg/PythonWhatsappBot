@@ -70,7 +70,8 @@ def handler(client: NewClient, message: MessageEv):
         case "play":
             client.reply_message("I will be able to send you songs as soon as possible. For now enjoy your spotify", message)
         case "owner":
-            client.reply_message("Thanks for trying to reach my owner. Contact Kresswell here +254798242085", message)
+            client.send_contact(chat, "(^▽^) ＫＲＥＳＳＷＥＬＬ (✿^▽^)", "+254798242085", quoted=message,)
+            #client.reply_message("Thanks for trying to reach my owner. Contact Kresswell here +254798242085", message)
         case "gpt":
             if len(text) == 0:
                 client.send_message(chat, "Hello, Please provide a query for me to process.", message)
