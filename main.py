@@ -69,7 +69,7 @@ def handler(client: NewClient, message: MessageEv):
        
         case "repo":
              client.send_message(
-                chat, "Test https://github.com/krypton-byte/neonize", link_preview=True
+                chat, "Test https://github.com/Muiruri42/PythonWhatsappBot/", link_preview=True
             )
         case "setgcname":
               client.set_group_name(chat, testo)
