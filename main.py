@@ -66,6 +66,8 @@ def handler(client: NewClient, message: MessageEv):
                 caption=menu,
                 quoted=message,
             )
+        case "groupinfo":
+              client.get_group_info(chat)
         case "setgcname":
               client.set_group_name(chat, testo)
         case "ping":
