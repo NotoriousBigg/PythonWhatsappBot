@@ -58,15 +58,13 @@ def handler(client: NewClient, message: MessageEv):
     chat = message.Info.MessageSource.Chat
     cmd = text.split(' ')[0]
     match cmd:
-        case "imgmenu":
+        case "menu":
             client.send_image(
                 chat,
                 "https://download.samplelib.com/png/sample-boat-400x300.png",
                 caption=menu,
                 quoted=message,
             )
-        case "menu":
-            client.send_message(chat, menu, message)
         case "ping":
             client.reply_message("pong", message)
         case "play":
