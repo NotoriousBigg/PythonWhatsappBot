@@ -58,13 +58,13 @@ def handler(client: NewClient, message: MessageEv):
     chat = message.Info.MessageSource.Chat
     cmd = text.split(' ')[0]
     match cmd:
-        """case "menu":
+        case "imgmenu":
             client.send_image(
                 chat,
                 "https://download.samplelib.com/png/sample-boat-400x300.png",
                 caption=menu,
                 quoted=message,
-            )"""
+            )
         case "menu":
             client.send_message(chat, menu, message)
         case "ping":
@@ -77,11 +77,10 @@ def handler(client: NewClient, message: MessageEv):
             if len(text) == 0:
                 client.send_message(chat, "Hello, Please provide a query for me to process.", message)
             else:
-                url = f"https://chatgpt.apinepdev.workers.dev/?question={text}"
+                url = f"https://dev-the-dark-lord0.pantheonsite.io/wp-admin/js/Apis/Gemini.php?message={message.text}"
                 response = requests.get(url)
                 if response.status_code == 200:
-                    json_response = response.json()
-                    answer = json_response.get("answer")
+                    answer = response.text
                     client.send_message(chat, answer, message)
                 else:
                     client.send_message(chat, "An error occured while processing.", message)
