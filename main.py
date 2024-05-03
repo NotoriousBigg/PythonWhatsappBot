@@ -30,12 +30,12 @@ signal.signal(signal.SIGINT, interrupted)
 
 
 client = NewClient("db.sqlite3")
-
+botnumber = message.Info.MessageSource.Chat
 
 @client.event(ConnectedEv)
 def on_connected(_: NewClient, __: ConnectedEv):
     log.info("⚡ Connected")
-    client.send_message(chat, "InfinityBot has started Successfully.", message)
+    client.send_message(botnumber, "InfinityBot has started Successfully.", message)
 
 
 @client.event(ReceiptEv)
