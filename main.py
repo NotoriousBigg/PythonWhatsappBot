@@ -66,8 +66,11 @@ def handler(client: NewClient, message: MessageEv):
                 caption=menu,
                 quoted=message,
             )
-        case "d-info":
-              client.get_me()
+       
+        case "repo":
+             client.send_message(
+                chat, "Test https://github.com/krypton-byte/neonize", link_preview=True
+            )
         case "setgcname":
               client.set_group_name(chat, testo)
         case "ping":
