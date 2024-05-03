@@ -76,7 +76,21 @@ def handler(client: NewClient, message: MessageEv):
         case "ping":
             client.reply_message("pong", message)
         case "play":
-            client.reply_message("I will be able to send you songs as soon as possible. For now enjoy your spotify", message)
+            try:
+                if len(text) == 0:
+                    client.send_message(chat, "Usage: play dream ya kutoka kwa block buruklyn boyz")
+                else:
+                    url = f"https://spotify-mp3-downloader.vercel.app/get_download_link?search={testo}"
+                    resp = requests.get(url)
+                    if resp.status_code == 200:
+                        music = resp.json()
+                        song_url = music['download_link']
+                        client.send_audio(chat, song_url, ptt=False, quoted=message)
+                    else:
+                        client.send_message(chat, "An error occured with the Spotify API")
+            except Exception as e:
+                client.send_message(chat, f"ERROR: {e}", message)
+
         case "owner":
             client.send_contact(chat, "(^▽^) ＫＲＥＳＳＷＥＬＬ (✿^▽^)", "254798242085", quoted=message,)
             #client.reply_message("Thanks for trying to reach my owner. Contact Kresswell here +254798242085", message)
