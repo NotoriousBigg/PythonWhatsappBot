@@ -35,7 +35,7 @@ botnumber = "254798242085@s.whatsapp.net"
 @client.event(ConnectedEv)
 def on_connected(_: NewClient, __: ConnectedEv):
     log.info("⚡ Connected")
-    client.send_message(botnumber, "InfinityBot has started Successfully.", message)
+    client.send_message(botnumber, "InfinityBot has started Successfully.")
 
 
 @client.event(ReceiptEv)
