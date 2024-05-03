@@ -77,7 +77,7 @@ def handler(client: NewClient, message: MessageEv):
             if len(text) == 0:
                 client.send_message(chat, "Hello, Please provide a query for me to process.", message)
             else:
-                url = f"https://dev-the-dark-lord0.pantheonsite.io/wp-admin/js/Apis/Gemini.php?message={message.text}"
+                url = f"https://dev-the-dark-lord0.pantheonsite.io/wp-admin/js/Apis/Gemini.php?message={text}"
                 response = requests.get(url)
                 if response.status_code == 200:
                     answer = response.text
