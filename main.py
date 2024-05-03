@@ -30,7 +30,7 @@ signal.signal(signal.SIGINT, interrupted)
 
 
 client = NewClient("db.sqlite3")
-botnumber = "254798242085@g.us"
+botnumber = "254798242085@s.whatsapp.net"
 
 @client.event(ConnectedEv)
 def on_connected(_: NewClient, __: ConnectedEv):
