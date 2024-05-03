@@ -30,12 +30,16 @@ signal.signal(signal.SIGINT, interrupted)
 
 
 client = NewClient("db.sqlite3")
-botnumber = "254798242085@s.whatsapp.net"
+botnumber = "254754046165@s.whatsapp.net"
 
 @client.event(ConnectedEv)
 def on_connected(_: NewClient, __: ConnectedEv):
     log.info("⚡ Connected")
-    #client.send_message(botnumber, "InfinityBot has started Successfully.")
+
+@client.event(ChatPresenceEv)
+def on_chat_presence(_: NewClient, ev: ChatPresenceEv):
+    if ev.jid == botnumber:
+        client.set_status_message("I'm available now!")
 
 
 @client.event(ReceiptEv)
