@@ -85,7 +85,7 @@ def handler(client: NewClient, message: MessageEv):
                     if resp.status_code == 200:
                         music = resp.json()
                         song_url = music['download_link']
-                        client.send_audio(chat, song_url, ptt=False, quoted=message)
+                        client.send_message(chat, client.build_audio_message(song_url, ptt=False, quoted=message),)
                     else:
                         client.send_message(chat, "An error occured with the Spotify API")
             except Exception as e:
