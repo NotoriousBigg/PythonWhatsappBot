@@ -36,11 +36,6 @@ botnumber = "254754046165@s.whatsapp.net"
 def on_connected(_: NewClient, __: ConnectedEv):
     log.info("⚡ Connected")
 
-@client.event(ChatPresenceEv)
-def on_chat_presence(_: NewClient, ev: ChatPresenceEv):
-    if ev.jid == botnumber:
-        client.set_status_message("I'm available now!")
-
 
 @client.event(ReceiptEv)
 def on_receipt(_: NewClient, receipt: ReceiptEv):
