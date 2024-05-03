@@ -57,6 +57,7 @@ def handler(client: NewClient, message: MessageEv):
     text = message.Message.conversation or message.Message.extendedTextMessage.text
     chat = message.Info.MessageSource.Chat
     cmd = text.split(' ')[0]
+    testo = text.split(' ')[-1]
     match cmd:
         case "menu":
             client.send_image(
@@ -65,6 +66,8 @@ def handler(client: NewClient, message: MessageEv):
                 caption=menu,
                 quoted=message,
             )
+        case "setgcname":
+              client.set_group_name(chat, testo)
         case "ping":
             client.reply_message("pong", message)
         case "play":
