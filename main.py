@@ -35,6 +35,7 @@ client = NewClient("db.sqlite3")
 @client.event(ConnectedEv)
 def on_connected(_: NewClient, __: ConnectedEv):
     log.info("⚡ Connected")
+    client.send_message(chat, "InfinityBot has started Successfully.", message)
 
 
 @client.event(ReceiptEv)
